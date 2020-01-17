@@ -50,3 +50,26 @@ class Car {
 */
 
 let isDone: boolean = false;
+class Person {
+    name: string; // 属性
+    constructor(n: string) { // 构造函数 实例化类的时候触发的方法
+        this.name = n
+    };
+    run(): void {
+        alert(this.name)
+    };
+
+    getName(): string {
+        return this.name
+    };
+
+    setName(name: string): void {
+        this.name = name;
+    }
+}
+
+var a = new Person('zhangsan');
+a.run();
+a.getName();
+a.setName('lisi');
+
