@@ -51,9 +51,9 @@ class Car {
 
 let isDone: boolean = false;
 class Person {
-    name: string; // 属性
-    constructor(n: string) { // 构造函数 实例化类的时候触发的方法
-        this.name = n
+    public name: string; // 公有属性
+    constructor(name: string) { // 构造函数 实例化类的时候触发的方法
+        this.name = name;
     };
     run(): void {
         alert(this.name)
@@ -73,3 +73,35 @@ a.run();
 a.getName();
 a.setName('lisi');
 
+class Web extends Person {
+    public age: number;
+    constructor(name: string, age: number) {
+        super(name);  // 初始化父类的构造函数
+        this.age = age;
+    };
+
+    run(): void {
+        alert(`$(this.name)在活动`)
+    };
+
+    work(): void {
+        alert(`$(this.name)在工作`)
+    };
+    static print(): void { //静态方法
+        alert('haha')
+    }
+}
+var b = new Web('lisi', 66)
+Web.print() //调用静态方法
+
+/*
+三种修饰符
+public公有 在类里面、子类、类外面都可访问
+protected 保护类 在类里面、子类可以访问，在类外部没法访问
+private 私有 在类里面可以访问，子类、类外部无法访问
+
+属性不加修饰符默认公有
+*/
+/*
+static 定义静态属性、方法
+*/
