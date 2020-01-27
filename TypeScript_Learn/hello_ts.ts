@@ -128,11 +128,21 @@ getData<string>('111')
 
 // 泛型接口
 interface config {
-    <T>(key:T, value:T): T
+    <T>(key: T, value: T): T
 }
 
-var getData2:config = function <T>(key:T, value:T): T {
+var getData2: config = function <T>(key: T, value: T): T {
     return key
 }
 
-getData2<string>('111','222')
+getData2<string>('111', '222')
+
+interface config2<T> {
+    (value: T): T
+}
+
+function getData3<T>(value: T): T {
+    return value
+}
+
+let myGetData: config2<string> = getData3;
