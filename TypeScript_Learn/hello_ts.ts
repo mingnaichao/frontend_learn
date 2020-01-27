@@ -105,3 +105,34 @@ private 私有 在类里面可以访问，子类、类外部无法访问
 /*
 static 定义静态属性、方法
 */
+
+// 接口
+interface FullName {
+    firstName: string;
+    secondName?: string;
+}
+
+function printName(name: FullName): void {
+    console.log(name.firstName + name.secondName);
+}
+
+printName({ firstName: '1', secondName: '2' });
+
+// 泛型
+function getData<T>(value: T): T {
+    return value
+}
+
+getData<number>(111)
+getData<string>('111')
+
+// 泛型接口
+interface config {
+    <T>(key:T, value:T): T
+}
+
+var getData2:config = function <T>(key:T, value:T): T {
+    return key
+}
+
+getData2<string>('111','222')
